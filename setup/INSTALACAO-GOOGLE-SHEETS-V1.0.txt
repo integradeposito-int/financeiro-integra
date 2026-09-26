@@ -1,0 +1,38 @@
+FINANCEIRO ÍNTEGRA V1.0 — ATUALIZAÇÃO DO GOOGLE SHEETS
+
+Esta atualização mantém a planilha atual e a mesma URL do Web App.
+Ela acrescenta a estrutura anual (um arquivo Google Sheets por ano) e a aba técnica SALDOS_INICIAIS.
+
+ATUALIZAÇÃO DA INSTALAÇÃO EXISTENTE
+1. Abra a planilha atual no Google Sheets.
+2. Extensões > Apps Script.
+3. Substitua o código atual pelo conteúdo de APPS-SCRIPT-V1.0.gs.
+4. Salve o projeto.
+5. No seletor de funções, escolha setupFinanceiro e clique em Executar UMA VEZ.
+   - Este passo NÃO apaga seus dados.
+   - Ele registra a planilha atual como base do ano corrente.
+   - Ele cria a aba técnica SALDOS_INICIAIS, se ainda não existir.
+6. Vá em Implantar > Gerenciar implantações > Editar.
+7. Em Versão, escolha Nova versão.
+8. Descrição sugerida: Financeiro Íntegra V1.0 - Base anual.
+9. Mantenha Executar como: Eu e o acesso já configurado para o sistema.
+10. Implante. Editando a implantação existente, a URL /exec permanece a mesma.
+
+TESTE
+Abra a URL /exec?action=ping.
+A resposta deve trazer:
+- "ok": true
+- "backendVersion": "1.0"
+- "activeYear": ano atual
+- "availableYears": lista de anos registrados
+
+BASES ANUAIS
+- A mesma URL do Apps Script administra todos os anos.
+- O ano operacional aceita leitura e gravação.
+- Anos anteriores são somente consulta pelo sistema.
+- Na primeira utilização após uma virada de ano, o backend cria a nova planilha do ano no Google Drive, registra seu ID e preserva a anterior.
+- A nova planilha leva os cadastros e saldos acumulados necessários, mas começa as movimentações do novo ano sem carregar milhares de linhas antigas.
+- Não exclua do Google Drive as planilhas anuais registradas. Você pode baixar uma cópia em XLSX para arquivo morto sem apagar a versão do Drive.
+
+IMPORTANTE
+A versão do produto permanece V1.0 durante esta fase funcional. "schema 12" é apenas a versão interna da estrutura dos dados e não é a versão comercial do aplicativo.
