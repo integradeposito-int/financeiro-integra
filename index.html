@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Financeiro Íntegra — controle financeiro de obras, contratos, pessoas e pagamentos.">
+  <meta name="theme-color" content="#f5f7f6">
+  <title>Financeiro Íntegra</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%23182027'/%3E%3Cpath d='M10 27V13h5v14m5 0V8h5v19m5 0V16h5v11' stroke='%23ff6700' stroke-width='3.5' fill='none'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="domain.js"></script>
+  <script defer src="settings.js"></script>
+  <script defer src="connection.js"></script>
+  <script defer src="repository.js"></script>
+  <script defer src="setup-package.js"></script>
+  <script defer src="vendor/reader-assets.js"></script>
+  <script defer src="vendor/tesseract.min.js"></script>
+  <script defer src="reader.js"></script>
+  <script defer src="vendor/pdf-lib.min.js"></script>
+  <script defer src="vendor/jszip.min.js"></script>
+  <script defer src="exports.js"></script>
+  <script defer src="export-view.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <aside class="sidebar" aria-label="Navegação principal">
+    <a class="brand" href="#" aria-label="Financeiro Íntegra, painel geral">
+      <span class="logo-wrap">
+        <img id="brand-logo-light" class="brand-logo logo-light" src="assets/logo-integra-light.png" alt="Íntegra Engenharia e Construção">
+        <img id="brand-logo-dark" class="brand-logo logo-dark" src="assets/logo-integra-dark.png" alt="Íntegra Engenharia e Construção">
+      </span>
+      <span class="brand-divider"></span>
+      <span class="brand-product"><span id="brand-system-name">Financeiro Íntegra</span><small id="brand-slogan">Gestão que constrói resultados</small></span>
+    </a>
+
+    <nav class="main-nav">
+      <button class="nav-item active" id="nav-home" data-nav="home"><span class="nav-icon">⌂</span><span>Painel Geral</span></button>
+      <button class="nav-item" id="nav-works" data-nav="works"><span class="nav-icon">▥</span><span>Obras</span></button>
+      <button class="nav-item" id="nav-payments" data-nav="payments"><span class="nav-icon">▣</span><span>Pagamentos</span></button>
+      <button class="nav-item" id="nav-people" data-nav="people"><span class="nav-icon">♙</span><span>Cadastros</span></button>
+    </nav>
+
+    <div class="sidebar-divider"></div>
+    <button class="nav-item subtle" id="nav-settings" data-nav="settings" type="button"><span class="nav-icon">⚙</span><span>Configurações</span><span class="nav-lock">▣</span></button>
+    <button class="nav-item subtle" id="theme-toggle" type="button"><span class="nav-icon" id="theme-icon">◐</span><span id="theme-label">Tema escuro</span></button>
+    <a class="nav-item subtle guide-link" id="guide-download" href="assets/Guia_de_Uso_Financeiro_Integra_V1.0.pdf" download="Guia_de_Uso_Financeiro_Integra_V1.0.pdf" title="Baixar guia de uso"><span class="nav-icon">?</span><span>Guia de uso</span></a>
+    <div class="sidebar-foot licensed-foot">
+      <div class="line-art" aria-hidden="true">⌂⌁</div>
+      <p id="licensed-company">© 2026 Íntegra Engenharia e Construção. Todos os direitos reservados.</p>
+      <small id="licensed-use">Uso autorizado para Íntegra Engenharia e Construção</small>
+      <span></span>
+    </div>
+  </aside>
+
+  <div class="workspace">
+    <header class="topbar">
+      <div class="topbar-title only-breadcrumb"><small id="breadcrumb">Visão geral</small></div>
+      <div class="topbar-actions">
+        <button class="icon-button desktop-theme" id="theme-toggle-top" title="Alternar tema" aria-label="Alternar tema">◐</button>
+        <span class="demo-badge" id="connection-badge">DEMONSTRAÇÃO</span>
+      </div>
+    </header>
+    <main id="main" tabindex="-1"></main>
+    <footer><span id="app-footer-copy">Modo local de demonstração.</span> <button id="reset-demo" class="link">Restaurar exemplos</button></footer>
+  </div>
+
+  <dialog id="modal" aria-labelledby="modal-title"><div id="modal-body"></div></dialog>
+  <div id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
